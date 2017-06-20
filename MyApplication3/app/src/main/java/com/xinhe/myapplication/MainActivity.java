@@ -1,6 +1,8 @@
 package com.xinhe.myapplication;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -9,20 +11,14 @@ import android.util.Log;
 
 import static android.provider.Telephony.Mms.Part.TEXT;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
 
     PasswordView password;
 
-
-
-
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //  UILKit.init(this);
         setContentView(R.layout.activity_main);
         password=(PasswordView) findViewById(R.id.password);
         password.setListen(new PasswordView.MyPassWordListen() {
@@ -37,7 +33,5 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("passwordInput2",postion+"");
             }
         });
-
-
     }
 }

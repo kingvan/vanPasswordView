@@ -10,9 +10,18 @@
     tools:context="com.xinhe.myapplication.MainActivity">
 
     <com.xinhe.myapplication.PasswordView
+
         android:id="@+id/password"
         android:layout_width="200dp"
         android:layout_height="200dp" />
+
+    <com.xinhe.myapplication.TimeLineView
+        android:id="@+id/timeline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </com.xinhe.myapplication.TimeLineView>
 
 
 
