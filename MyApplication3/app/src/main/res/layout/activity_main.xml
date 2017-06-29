@@ -4,28 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
+    android:gravity="center"
     android:paddingTop="30dp"
     android:orientation="vertical"
     tools:context="com.xinhe.myapplication.MainActivity">
 
     <com.xinhe.myapplication.PasswordView
-
+        android:visibility="gone"
         android:id="@+id/password"
         android:layout_width="200dp"
         android:layout_height="200dp" />
 
     <com.xinhe.myapplication.TimeLineView
+        android:visibility="gone"
         android:id="@+id/timeline"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
 
 
     </com.xinhe.myapplication.TimeLineView>
 
 
 
-
+    <com.xinhe.myapplication.GameView
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
 
 
 </LinearLayout>
