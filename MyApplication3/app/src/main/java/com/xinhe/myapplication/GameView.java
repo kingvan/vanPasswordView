@@ -60,13 +60,14 @@ public class GameView extends View {
 
     public void setPower(float[] power) {
         this.power = power;
+        invalidate();
     }
 
     private void initView() {
 
         powerlist=new ArrayList<>();
 
-        power=new float[]{60,80,90,40,30,70};
+        power=new float[]{80,80,80,80,60,80};
 
         p=new Paint();
         p.setAntiAlias(true);
@@ -134,9 +135,7 @@ public class GameView extends View {
         p_point.setColor(Color.GREEN);
         if(showPoint) {
             drawPoint(x + lenght / 2, (float) (y + sin60 * lenght), canvas);
-
             float temp=power[1]/maxPower;
-
             powerlist.add(new Point((int)(lenght / 2*temp),(int)(sin60 * lenght*temp)));
 
         }
@@ -161,16 +160,25 @@ public class GameView extends View {
 
         //四号点
         path.lineTo(x-lenght, y);
-        if(showPoint)
-        drawPoint(x-lenght, y,canvas);
+        if(showPoint) {
+            drawPoint(x - lenght, y, canvas);
+
+            float temp=power[3]/maxPower;
+            powerlist.add(new Point((int)(lenght / (-1)*temp),0));
+
+        }
 
 
 
 
         //五号点
         path.lineTo(x-lenght/2,(float) (y-sin60*lenght));
-        if(showPoint)
-        drawPoint(x-lenght/2,(float) (y-sin60*lenght),canvas);
+        if(showPoint) {
+            drawPoint(x - lenght / 2, (float) (y - sin60 * lenght), canvas);
+            float temp=power[4]/maxPower;
+            powerlist.add(new Point((int)(lenght / (-2)*temp),(int)((-1)*sin60 * lenght*temp)));
+
+        }
 
 
 
@@ -178,14 +186,21 @@ public class GameView extends View {
         p_point.setColor(Color.BLACK);
 
         path.lineTo(x+lenght/2,(float) (y-sin60*lenght));
-        if(showPoint)
-        drawPoint(x+lenght/2,(float) (y-sin60*lenght),canvas);
+        if(showPoint) {
+            drawPoint(x + lenght / 2, (float) (y - sin60 * lenght), canvas);
+            float temp=power[5]/maxPower;
+            powerlist.add(new Point((int)(lenght / (2)*temp),(int)((-1)*sin60 * lenght*temp)));
+        }
 
 
        //闭合
         path.lineTo(x+lenght,y);
 
         canvas.drawPath(path,p);
+
+        if(showPoint) {
+            drawLine(canvas,x,y);
+        }
 
 
 
@@ -196,8 +211,24 @@ public class GameView extends View {
 
     public void drawPoint(float x,float y,Canvas canvas){
         RectF rectF=new RectF((float) (x-sin45*pointR),(float) (y-sin45*pointR),(float) (x+sin45*pointR),(float) (y+sin45*pointR));
-
         canvas.drawOval(rectF,p_point);
+    }
+
+    public void drawLine(Canvas canvas,int x,int y){
+         if(powerlist!=null){
+             Path path=new Path();
+             path.moveTo(powerlist.get(0).x+x,powerlist.get(0).y+y);
+
+             for(int i=1;i<powerlist.size();i++){
+
+                 path.lineTo(powerlist.get(i).x+x,powerlist.get(i).y+y);
+             }
+             path.close();
+             p.setColor(Color.GREEN);
+             canvas.drawPath(path,p);
+
+         }
+
 
 
     }
