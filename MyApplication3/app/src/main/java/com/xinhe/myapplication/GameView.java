@@ -67,7 +67,7 @@ public class GameView extends View {
 
         powerlist=new ArrayList<>();
 
-        power=new float[]{80,80,80,80,60,80};
+        power=new float[]{70,40,80,30,60,80};
 
         p=new Paint();
         p.setAntiAlias(true);
@@ -225,6 +225,7 @@ public class GameView extends View {
              }
              path.close();
              p.setColor(Color.GREEN);
+             p.setStyle(Paint.Style.FILL);
              canvas.drawPath(path,p);
 
          }

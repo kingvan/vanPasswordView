@@ -29,6 +29,11 @@
 
 
     <com.xinhe.myapplication.GameView
+        android:visibility="gone"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+
+    <com.xinhe.myapplication.SeventView
         android:layout_width="200dp"
         android:layout_height="200dp" />
 
