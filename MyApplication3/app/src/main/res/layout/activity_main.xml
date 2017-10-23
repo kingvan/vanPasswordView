@@ -9,33 +9,11 @@
     android:orientation="vertical"
     tools:context="com.xinhe.myapplication.MainActivity">
 
-    <com.xinhe.myapplication.PasswordView
-        android:visibility="gone"
-        android:id="@+id/password"
-        android:layout_width="200dp"
-        android:layout_height="200dp" />
+  <com.xinhe.myapplication.Guanji
+      android:id="@+id/guanji"
+      android:layout_width="200dp"
+      android:layout_height="50dp" />
 
-    <com.xinhe.myapplication.TimeLineView
-        android:visibility="gone"
-        android:id="@+id/timeline"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-
-
-    </com.xinhe.myapplication.TimeLineView>
-
-
-
-    <com.xinhe.myapplication.GameView
-        android:visibility="gone"
-        android:layout_width="200dp"
-        android:layout_height="200dp" />
-
-    <com.xinhe.myapplication.SeventView
-        android:layout_width="200dp"
-        android:layout_height="200dp" />
 
 
 </LinearLayout>
